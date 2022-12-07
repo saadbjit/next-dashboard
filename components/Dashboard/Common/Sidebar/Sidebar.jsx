@@ -1,24 +1,9 @@
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import SendIcon from "@mui/icons-material/Send";
-import StarBorder from "@mui/icons-material/StarBorder";
-import { MenuItem } from "@mui/material";
-import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import ListSubheader from "@mui/material/ListSubheader";
-import * as React from "react";
+import SidebarMenu from "./SidebarMenu";
 
 export default function Sidebar({ menuItems }) {
   console.log("menuItems = ", menuItems);
-  const [open, setOpen] = React.useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
 
   return (
     <List
@@ -32,7 +17,7 @@ export default function Sidebar({ menuItems }) {
       }
     >
       {menuItems.map((item, index) => (
-        <MenuItem item={item} key={index} />
+        <SidebarMenu item={item} key={index} />
         // <ListItem key={text} disablePadding>
         //   <ListItemButton>
         //     <ListItemIcon>
@@ -42,14 +27,8 @@ export default function Sidebar({ menuItems }) {
         //   </ListItemButton>
         // </ListItem>
       ))}
-      <ListItemButton>
-        <ListItemIcon>
-          <SendIcon />
-        </ListItemIcon>
-        <ListItemText primary="Sent mail" />
-      </ListItemButton>
 
-      <ListItemButton onClick={handleClick}>
+      {/* <ListItemButton onClick={handleClick}>
         <ListItemIcon>
           <InboxIcon />
         </ListItemIcon>
@@ -65,7 +44,7 @@ export default function Sidebar({ menuItems }) {
             <ListItemText primary="Starred" />
           </ListItemButton>
         </List>
-      </Collapse>
+      </Collapse> */}
     </List>
   );
 }
