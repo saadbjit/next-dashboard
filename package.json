@@ -11,12 +11,22 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@faker-js/faker": "^7.6.0",
+    "@iconify/react": "^4.0.1",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/lab": "^5.0.0-alpha.111",
     "@mui/material": "^5.10.16",
+    "date-fns": "^2.29.3",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
+    "lodash": "^4.17.21",
     "next": "13.0.6",
+    "numeral": "^2.0.6",
     "react": "18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "18.2.0",
-    "sass": "^1.56.1"
+    "react-hook-form": "^7.40.0",
+    "sass": "^1.56.1",
+    "simplebar-react": "^2.4.3"
   }
 }
