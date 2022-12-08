@@ -27,6 +27,11 @@ export const menuItems = [
         icon: Send,
         path: "/admin/dashboard/product/list",
       },
+      {
+        title: "Create Product",
+        icon: Send,
+        path: "/admin/dashboard/product/create",
+      },
     ],
      
     },

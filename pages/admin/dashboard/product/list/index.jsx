@@ -1,4 +1,4 @@
-import ProductListComp from "../../../../../components/Dashboard/ProductListComp/ProductListComp";
+import ProductListComp from "../../../../../components/Dashboard/Product/ProductListComp/ProductListComp";
 
 const ProductList = () => {
   return (
