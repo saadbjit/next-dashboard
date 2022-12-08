@@ -7,48 +7,83 @@ import {
   ListItemText,
 } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
-import * as React from "react";
-const SidebarMenu = ({ item }) => {
-  const [open, setOpen] = React.useState(false);
+import Link from "next/link";
+import { useState } from "react";
+
+const MenuLink = ({ item }) => {
+  return (
+    <>
+      <Link href={item.path} className={`linkstyle`}>
+        <ListItemButton sx={item.type == "single" ? {} : { pl: 4 }}>
+          <ListItemIcon>
+            <item.icon />
+          </ListItemIcon>
+          <ListItemText primary={item.title} />
+        </ListItemButton>
+      </Link>
+    </>
+  );
+};
+
+/* Single Menu Item Component */
+const SingleItem = ({ item }) => {
+  return (
+    <>
+      {/* <ListItemButton>
+        <ListItemIcon>
+          <item.icon />
+        </ListItemIcon>
+        <ListItemText primary={item.title} />
+      </ListItemButton> */}
+      <MenuLink item={item} />
+    </>
+  );
+};
+
+/* Drop Down Menu Item Component */
+const DropDownItem = ({ item, child }) => {
+  const [open, setOpen] = useState(false);
+
   const handleClick = () => {
     setOpen(!open);
   };
+  return (
+    <>
+      <ListItemButton onClick={handleClick}>
+        <ListItemIcon>
+          <item.icon />
+        </ListItemIcon>
+        <ListItemText primary={item.title} />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          {child.map((ch, index) => (
+            <div key={index}>
+              <MenuLink item={ch} />
+              {/* <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <ch.icon />
+                </ListItemIcon>
+                <ListItemText primary={ch.title} />
+              </ListItemButton> */}
+            </div>
+          ))}
+        </List>
+      </Collapse>
+    </>
+  );
+};
+
+const SidebarMenu = ({ item }) => {
   console.log("item = ", item);
   if (item.type == "single") {
-    return (
-      <>
-        <ListItemButton>
-          <ListItemIcon>
-            <item.icon />
-          </ListItemIcon>
-          <ListItemText primary={item.title} />
-        </ListItemButton>
-      </>
-    );
+    return <SingleItem item={item} />;
   }
   if (item.type == "dropdown") {
     console.log("child - ", item.childItem);
-    return (
-      <>
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
-            <item.icon />
-          </ListItemIcon>
-          <ListItemText primary={item.title} />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <item.childItem.icon />
-              </ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItemButton>
-          </List>
-        </Collapse>
-      </>
-    );
+    const child = item.childItem;
+    return <DropDownItem item={item} child={child} />;
   }
 };
 export default SidebarMenu;

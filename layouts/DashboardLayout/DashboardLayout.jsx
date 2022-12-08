@@ -20,7 +20,7 @@ import * as React from "react";
 import Sidebar from "../../components/Dashboard/Common/Sidebar/Sidebar";
 import Topbar from "../../components/Dashboard/Common/Topbar/Topbar";
 
-import menuItems from "../../static/menuItems";
+
 
 const drawerWidth = 240;
 
@@ -131,32 +131,7 @@ export default function DashboardLayout({ children }) {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        {/* <List>
-          {menuItems.map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
-        <Sidebar menuItems={menuItems} />
-        <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        <Sidebar/>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

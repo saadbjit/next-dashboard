@@ -4,30 +4,31 @@ import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import Send from "@mui/icons-material/Send";
-import StarBorder from "@mui/icons-material/StarBorder";
- const menuItems = [
+export const menuItems = [
+  {
+    title: "Dashboard",
+    type: "single",
+    icon: Send,
+    path: "/admin/dashboard",
+    childItem: [],
+  },
     {
       title: "Product",
       type: "dropdown",
       icon: MenuIcon,
+      path: null,
       childItem: [{
-        title: "User List",
-        path: "/users",
-        type: "single",
+        title: "Category List",
         icon: Send,
-        list: null,
-        path: "/product",
+        path: "/category",
       },
       {
-        title: "User Create",
-        path: "/users",
-        type: "single",
+        title: "Product List",
         icon: Send,
-        list: null,
-        path: "/product",
+        path: "/admin/dashboard/product/list",
       },
     ],
-      path: null,
+     
     },
     {
       title: "Inbox",
@@ -35,6 +36,7 @@ import StarBorder from "@mui/icons-material/StarBorder";
       icon: InboxIcon,
       list: null,
       path: "/inbox",
+      childItem:[]
     },
     {
       title: "Drafts",
@@ -42,30 +44,64 @@ import StarBorder from "@mui/icons-material/StarBorder";
       icon: MailIcon,
       list: null,
       path: "/inbox",
+      childItem:[]
     },
     {
       title: "User",
       type: "dropdown",
       icon: PermIdentityIcon,
+      path: null,
       childItem: [{
         title: "User List",
-        path: "/users",
-        type: "single",
         icon: Send,
-        list: null,
         path: "/product",
       },
       {
         title: "User Create",
-        path: "/users",
-        type: "single",
         icon: Send,
-        list: null,
         path: "/product",
       },
     ],
-      path: null,
+   
     },
   ];
 
-  export default menuItems;
+export const settingItems = [
+    {
+      title: "Profile",
+      type: "dropdown",
+      icon: MenuIcon,
+      path: null,
+      childItem: [{
+        title: "Edit Profile",
+        icon: Send,
+        path: "/product",
+      },
+      {
+        title: "Change Password",
+        icon: Send,
+        path: "/product",
+      },
+    ],
+     
+    },
+    {
+      title: "Inbox",
+      type: "single",
+      icon: InboxIcon,
+      list: null,
+      path: "/inbox",
+      childItem:[]
+    },
+    {
+      title: "Drafts",
+      type: "single",
+      icon: MailIcon,
+      list: null,
+      path: "/inbox",
+      childItem:[]
+    },
+   
+  ];
+
+
